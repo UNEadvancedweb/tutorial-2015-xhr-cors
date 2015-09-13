@@ -28,7 +28,18 @@ public class JsonExample extends Controller {
             an.add(toJson(new Gibberish()));
         }
 
+        response().setHeader("Access-Control-Allow-Origin", "*");
         return ok(an);
+    }
+
+    /**
+     * Cross-origin POST requests with JSON content require an OPTIONS request first. The response must contain the
+     * CORS header.
+     */
+    public static Result optionsGibberish() {
+        response().setHeader("Access-Control-Allow-Origin", "*");
+        response().setHeader("Access-Control-Allow-Headers", "content-type");
+        return ok("");
     }
 
     public static Result postGibberish() {
@@ -45,6 +56,7 @@ public class JsonExample extends Controller {
 
             System.out.println(g);
 
+            response().setHeader("Access-Control-Allow-Origin", "*");
             return ok("printed it");
         }
     }

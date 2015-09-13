@@ -8,6 +8,7 @@ POST    /captcha                    controllers.Application.captcha()
 
 GET     /gibberish                  controllers.JsonExample.getGibberish(n:Int)
 POST    /gibberish                  controllers.JsonExample.postGibberish()
+OPTIONS /gibberish                  controllers.JsonExample.optionsGibberish()
 
 
 # Map static resources from the /public folder to the /assets URL path
